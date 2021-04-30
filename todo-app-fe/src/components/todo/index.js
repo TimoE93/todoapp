@@ -14,7 +14,7 @@ class ToDo extends React.Component {
     render() {
 
         return (
-            <li>
+            <li className="border">
                 <label>{this.props.todo.name}</label>
                 <input type="button" value="delete" onClick={this.handleClick}></input>
             </li>

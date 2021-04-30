@@ -12,9 +12,11 @@ class TodoTable extends React.Component {
         return (
             <div>
                 <p>Todos:</p>
-                <ul>
+                <div className="todos">
+                <ul >
                 {todos}
                 </ul>
+                </div>
             </div>
 
         )

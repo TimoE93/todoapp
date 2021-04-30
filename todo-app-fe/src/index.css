@@ -12,3 +12,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#root {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100%;
+}
+
+.border {
+  border: solid 2px;
+  border-radius: 15px;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.primary-color {
+  background-color: burlywood;
+}
+
+.todos {
+  overflow: auto;
+  height: 500px;
+}

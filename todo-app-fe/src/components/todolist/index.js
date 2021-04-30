@@ -41,7 +41,7 @@ class ToDoList extends React.Component {
 
     render() {
         return (
-            <div className="todolist">
+            <div className="todolist border primary-color">
                 <h2>ToDoList</h2>
                 <InputField onClick={this.addTodo}/>
                 <TodoTable todos={this.state.todos} onDelete={this.deleteTodo}/>
