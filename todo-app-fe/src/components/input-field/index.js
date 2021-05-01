@@ -16,7 +16,6 @@ class InputField extends React.Component {
     handleClick(e) {
         e.preventDefault();
         this.props.onClick(this.state.value);
-        alert(this.state.value);
     }
 
     handleChange(e) {

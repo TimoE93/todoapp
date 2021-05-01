@@ -6,36 +6,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
-  width: 100vw;
-  height: 100vh
+  height: 100vh;
+  background-color: green;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-#root {
-  height: 100%;
-}
-
-.border {
-  border: solid 2px;
-  border-radius: 15px;
-}
-
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.primary-color {
-  background-color: burlywood;
-}
-
-.todos {
-  overflow: auto;
-  height: 500px;
 }

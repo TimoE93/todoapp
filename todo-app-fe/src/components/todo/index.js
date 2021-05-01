@@ -8,7 +8,7 @@ class ToDo extends React.Component {
     }
 
     handleClick(e) {
-        this.props.onDelete(this.props.key);
+        this.props.onDelete(this.props.index);
     }
 
     render() {

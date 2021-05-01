@@ -7,7 +7,7 @@ class TodoTable extends React.Component {
 
         this.props.todos.forEach((element, index) => {
             console.log(index);
-            todos.push(<ToDo todo={element} key={index} onDelete={this.props.onDelete}/>);
+            todos.push(<ToDo todo={element} key={index} onDelete={this.props.onDelete} index={index}/>);
         });
         return (
             <div>
