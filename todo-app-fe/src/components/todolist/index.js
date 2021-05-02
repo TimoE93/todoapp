@@ -3,8 +3,6 @@ import InputField from "../input-field";
 import TodoTable from "../todo-table";
 import {todos} from "../../data/todos"
 
-import "./index.css";
-
 class ToDoList extends React.Component {
 
     constructor(props) {
@@ -41,7 +39,7 @@ class ToDoList extends React.Component {
 
     render() {
         return (
-            <div className="todolist border primary-color">
+            <div className="todolist">
                 <h2>ToDoList</h2>
                 <InputField onClick={this.addTodo}/>
                 <TodoTable todos={this.state.todos} onDelete={this.deleteTodo}/>

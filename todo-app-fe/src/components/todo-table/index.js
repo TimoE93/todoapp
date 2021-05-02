@@ -10,13 +10,11 @@ class TodoTable extends React.Component {
             todos.push(<ToDo todo={element} key={index} onDelete={this.props.onDelete} index={index}/>);
         });
         return (
-            <div>
-                <p>Todos:</p>
-                <div className="todos">
-                <ul >
+            <div className="todolist">
+                <h3>Todos:</h3>
+                <ul>
                 {todos}
                 </ul>
-                </div>
             </div>
 
         )
