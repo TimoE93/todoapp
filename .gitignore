@@ -1,2 +1,5 @@
 
 todoapp_backend/todos/__pycache__/
+.vscode/settings.json
+*.pyc
+*.pyc

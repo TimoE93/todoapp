@@ -21,5 +21,22 @@ class Query(graphene.ObjectType):
         except Todo.DoesNotExist:
             return None
 
-schema = graphene.Schema(query=Query)
+
+class TodoMutation(graphene.Mutation):
+    class Arguments: 
+        name = graphene.String(required=True)
+        id = graphene.ID()
+
+    todo = graphene.Field(TodoType)    
+
+    @classmethod
+    def mutate(cls, root, info, name, id):
+        todo = Todo(name=name)
+        todo.save()
+        return TodoMutation(todo = todo)
+
+class Mutation(graphene.ObjectType):
+    create_todo = TodoMutation.Field()        
+
+schema = graphene.Schema(query=Query, mutation=Mutation)
             
