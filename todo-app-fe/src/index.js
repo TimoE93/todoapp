@@ -3,10 +3,35 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ApolloProvider } from '@apollo/client/react';
+import { client } from './apollo_client/index';
+
+// import {ApolloClient, InMemoryCache} from '@apollo/client';
+// import { gql } from '@apollo/client';
+
+
+// const client = new ApolloClient({
+//   uri: 'http://localhost:8000/graphql',
+//   cache: new InMemoryCache()
+// });
+
+// client
+//   .query({
+//     query: gql`
+//       query GetAllTodos {
+//         allTodos {
+//           name
+//         }
+//       }
+//     `
+//   })
+//   .then(result => console.log(result));
 
 ReactDOM.render(
   <React.StrictMode>
+    <ApolloProvider client={client}>
     <App />
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

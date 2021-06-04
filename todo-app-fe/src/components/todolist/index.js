@@ -1,14 +1,17 @@
 import React from "react";
 import InputField from "../input-field";
 import TodoTable from "../todo-table";
-import {todos} from "../../data/todos"
+import { client } from '../../apollo_client/index';
+import { GET_ALL_TODOS } from '../../apollo_client/queries';
+import { gql } from '@apollo/client';
 
 class ToDoList extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            todos: []
+            todos: [],
+            isLoading: true
         }
 
         this.addTodo = this.addTodo.bind(this);
@@ -16,14 +19,29 @@ class ToDoList extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({
-            todos: todos
-        });
+        this.fetchTodos();
+    }
+
+    fetchTodos() {
+        const thisForTimeout = this;
+        setTimeout(function () {
+            client
+            .query({
+                query: GET_ALL_TODOS
+            })
+            .then(result => {
+                const {data} = result;
+                thisForTimeout.setState({
+                    todos: data.allTodos,
+                    isLoading: false
+                });
+            });
+        }, 5000);
     }
 
     addTodo(name) {
         let todos = this.state.todos.slice();
-        todos.push({name: name, status: false});
+        todos.push({ name: name, status: false });
         this.setState({
             todos: todos
         });
@@ -38,11 +56,18 @@ class ToDoList extends React.Component {
     }
 
     render() {
+        if ( this.state.isLoading ) {
+            return (
+                <div className="todolist">
+                <h2>ToDoList is loading...</h2>
+                </div>
+            )
+        }
         return (
             <div className="todolist">
                 <h2>ToDoList</h2>
-                <InputField onClick={this.addTodo}/>
-                <TodoTable todos={this.state.todos} onDelete={this.deleteTodo}/>
+                <InputField onClick={this.addTodo} />
+                <TodoTable todos={this.state.todos} onDelete={this.deleteTodo} />
             </div>
         )
     }
