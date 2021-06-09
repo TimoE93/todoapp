@@ -25,12 +25,11 @@ class Query(graphene.ObjectType):
 class TodoMutation(graphene.Mutation):
     class Arguments: 
         name = graphene.String(required=True)
-        id = graphene.ID()
 
     todo = graphene.Field(TodoType)    
 
     @classmethod
-    def mutate(cls, root, info, name, id):
+    def mutate(cls, root, info, name):
         todo = Todo(name=name)
         todo.save()
         return TodoMutation(todo = todo)
